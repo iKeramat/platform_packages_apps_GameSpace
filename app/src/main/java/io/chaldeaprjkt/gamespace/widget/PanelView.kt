@@ -16,6 +16,7 @@
 package io.chaldeaprjkt.gamespace.widget
 
 import android.content.Context
+import android.view.WindowManager
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
@@ -58,6 +59,9 @@ class PanelView @JvmOverloads constructor(
     }
 
     private fun applyRelativeLocation() {
+        val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        layoutParams.height = LayoutParams.WRAP_CONTENT
+
         doOnLayout {
             if (defaultY == null)
                 defaultY = y
